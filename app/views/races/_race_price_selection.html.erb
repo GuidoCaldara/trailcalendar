@@ -1,0 +1,31 @@
+
+          <div class="accordion my-4" id="racePriceSelector">
+          <label for="">Inserisci il prezzo dell'iscrizione. Se la tua gara ha un prezzo unico, clicca sul primo plsant e inseriscilo. Se invece offri inscrizioni a prezzi differenti in base al perido, clicca il secondo pulsante. </label>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#singlePrice" aria-expanded="true" aria-controls="singlePrice">
+              Prezzo unico
+            </button>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiplePrice" aria-expanded="true" aria-controls="multiplePrice">
+              Differente 
+            </button>
+            <div id="singlePrice" class="collapse" aria-labelledby="headingOne" data-parent="#racePriceSelector">
+              <div class="card-body">
+              <%= f.input :final_price, label: "Prezzo dell'iscrizione", input_html: { min: '0', max: '400', step: 'any' }%>
+              </div>
+            </div>
+            <div id="multiplePrice" class="collapse " aria-labelledby="headingOne" data-parent="#racePriceSelector">
+              <div class="card-body">
+              <% ["first_price", "second_price", "third_price"].each_with_index do |price, index| %>
+                <% words = ["Prima", "Seconda", "Terza"] %>
+            <div class="row" id="price-<%=index%>">
+              <div class="col-md-4">
+                <%= f.input "#{price}".to_sym, label: "#{words[index]} fascia di prezzo - #{"€" * (index + 1)}"%> 
+              </div>
+              <div class="col-md-8">
+                <%= f.input "#{price}_start".to_sym, label: "Prezzo valido dal al...", input_html: { min: '0', max: '1000' ,step: 'any' , class: 'date-range',  :data => {:step => "#{index}"}, placeholder: "Seleziona il periodo..."}%> 
+              </div>
+            </div>     
+          <% end %>
+
+              </div>
+            </div>
+          </div>

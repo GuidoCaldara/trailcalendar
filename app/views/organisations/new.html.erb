@@ -1,0 +1,23 @@
+<%= render "shared/alerts" %>
+<div class="container pb-5">
+<h1>Inserisci il tuo gruppo</h1>
+  <div class="row py-4">
+    <div class="col-md-10 mx-auto">
+        <%= simple_form_for @organisation do |f| %>
+          <%= f.input :name, label:"Nome del gruppo" %>
+          <%= f.input :email, label: "Indirizzo email" %>
+          <%= f.input :phone, label: "Numero di telefono", type:"tel"%>
+          <%= f.input :location, label: "Dove ha sede il gruppo?" %>
+          <%= f.input :description, label: "Racconta qualcosa sul tuo gruppo sportivo.", :input_html => { :rows => 7 , :style => 'width: 100%'}%>
+          <div class="d-flex">
+            <%= f.input :logo, label: "Logo del gruppo", input_html: { accept: ".jpg, .gif, .png" } %>
+            <img class="img-preview" id="logo-prewiew"/>
+            <%= f.input :logo_cache, as: :hidden %>
+          </div>
+          <%= f.submit "Conferma", class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+

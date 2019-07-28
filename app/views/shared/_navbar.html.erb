@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class=" justify-content-end collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to "Logout", destroy_user_session_path, class:"nav-link", method: :delete %>
+      </li>
+      <% if current_user.organiser? %>
+      <li class="nav-item active">
+        <%= link_to "Your organisation", organisation_path(current_user.organisation), class:"nav-link" %>
+      </li>
+
+      <% end %>
+    <% else %>       
+      <li class="nav-item active">
+        <%= link_to "Login", new_user_session_path, class:"nav-link" %>
+      </li>
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+        <%= link_to "Register", new_user_registration_path, class:"nav-link" %>
+        </li>
+    <% end %>
+    </ul>
+  </div>
+</nav>

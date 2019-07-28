@@ -1,0 +1,5 @@
+<% if flash[:alert]%>
+  <div data-type="warning" data-message="<%= flash[:alert]  %> " id="alertBox"></div>
+<% elsif flash[:success] %>
+  <div data-type="success" data-message="<%= flash[:success]  %> " id="alertBox"></div>
+<% end %>

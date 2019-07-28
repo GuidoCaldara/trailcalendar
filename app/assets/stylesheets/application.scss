@@ -1,1 +1,78 @@
 @import "bootstrap/scss/bootstrap"; // picks it up in node_modules!
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "font";
+@import "index";
+.body{
+  background-color: #f9f9f90a
+}
+
+.card-img {
+  width: 100%;
+  border-radius: calc(0.25rem - 1px);
+  object-fit: cover;
+  height: 170px
+}
+
+
+.selected{
+  background-color: green;
+}
+
+.race-type-btn{
+  background-color: #8080802e;
+  &:focus{
+    box-shadow: none;
+  } 
+ &:hover{
+  background-color: #808080c7
+ }
+ &.selected{
+  background-color: #808080c7
+ }
+}
+
+.form-control[readonly]{
+  background-color: white
+}
+
+
+
+.race-card-info {
+  font-size: 14px;
+  color: #6f6f6f;
+  margin-top: 4px
+}
+
+.race-card-date {
+  color: white;
+  background-color: red;
+  position: absolute;
+  padding: 0.5rem;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  right: 5%;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+form{
+  input[type="submit"]{
+    float: right
+  }
+}
+
+.img-preview{
+  height: 100px;
+  object-fit: cover
+}
+input.form-control{
+  border-radius: 4px
+}
+.form-control:focus{
+  box-shadow: none;
+  border-color: #303841
+}

@@ -1,0 +1,49 @@
+<div class="container pb-5">
+  <h1>Inserisci una tua gara</h1>
+  <div class="row py-4">
+    <div class="col-md-10 mx-auto">
+      <%= simple_form_for @race do |f| %>
+      <%= f.input :name, label:"Nome della corsa" %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :length, label: "Distanza in Km", input_html: { min: '0', max: '400', step: '1' }%>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :elevation, label: "Dislivello positivo in m", input_html: { min: '0', max: '30000', step: '50' }%>
+        </div>
+      </div>
+      <label for="">Tipo di Gara</label>
+      <div class="d-flex justify-content-around flex-wrap my-4">
+        <button type="button" class="btn race-type-btn">Trail</button>
+        <button type="button" class="btn race-type-btn">Ultra Trail</button>
+        <button type="button" class="btn race-type-btn">Skyrace</button>
+        <button type="button" class="btn race-type-btn">Vertical</button>
+      </div>
+      <%= f.hidden_field :race_type, label: "Tipologia" %>
+      <%= f.input :location, label: "Località - Da dove parte la gara?"%>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :date, label: "Data dell'evento", html5: true, input_html: { class: 'date-simple', placeholder: "Seleziona la data..." }  %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :departure_time, label: "Orario di Partenza",  html5: true,  input_html: { class: 'date-hour', placeholder: "Seleziona l'orario..." }  %>
+        </div>
+      </div>
+      <%= f.input :description, label: "Descrizione della corsa.", :input_html => { :rows => 9 , :style => 'width: 100%'} %>
+
+      <%= render "race_price_selection", f: f %>
+
+      <%= f.input :goodies, label: "Pacco gara (Se presente)", :input_html => { :rows => 6 , :style => 'width: 100%'} %>
+      <%= f.submit "Conferma", class: "btn btn-primary"%>
+      <div class="d-flex">
+        <%= f.input :cover_picture, label: "Immagine di copertina (Dimensione ottimale 1153*367)", input_html: { accept: ".jpg, .gif, .png" } %>
+        <img class="img-preview" id="cover-image-prewiew" />
+      </div>
+        <%= f.input :cover_picture_cache, as: :hidden %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag "flatpickr_init.js" %>
+<%= javascript_pack_tag "new_race_form.js" %>
