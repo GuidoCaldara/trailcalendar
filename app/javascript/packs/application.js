@@ -29,8 +29,13 @@ coverImagePrewiew && coverImagePrewiew.addEventListener("change", (e) => {
     dPreview(e,"cover-image-prewiew" )
 })
 
+const confirmCrop = document.querySelector("#confirm-crop")
 const img = document.querySelector("#cover-image-prewiew")
-img.addEventListener("load", (e)=>{
+const xOffset = document.querySelector("#xoffset")
+const yOffset = document.querySelector("#yoffset")
+const imgWidth = document.querySelector("#img-width")
+const imgHeight = document.querySelector("#img-height")
+img && img.addEventListener("load", (e)=>{
 const image = e.target
 $('#imagePreviewModal').modal('toggle')
 $('#imagePreviewModal').on('shown.bs.modal	', function (e) {
@@ -42,15 +47,23 @@ $('#imagePreviewModal').on('shown.bs.modal	', function (e) {
       scalable: false,
       
       crop(event) {
-        console.log(event.detail.x);
-        console.log(event.detail.y);
-        console.log(event.detail.width);
-        console.log(event.detail.height);
+        xOffset.value = Math.floor(event.detail.x)
+        yOffset.value = Math.floor(event.detail.y)
+        imgWidth.value = Math.floor(event.detail.width)
+        imgHeight.value = Math.floor(event.detail.height)
+        console.log(xOffset.value)
+        console.log(xOffset.value)
+        console.log(imgWidth.value)
+        console.log(imgHeight.value)
+
       },
-    });
+    })
 
     document.querySelector("#closeCropper").addEventListener("click", () =>{
         cropper.destroy()
+    })
+    confirmCrop.addEventListener("click", () =>{
+        $('#imagePreviewModal').modal('toggle')
     })
     // do something...
   })

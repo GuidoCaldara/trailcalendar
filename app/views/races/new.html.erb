@@ -32,7 +32,10 @@
       <%= f.input :description, label: "Descrizione della corsa.", :input_html => { :rows => 9 , :style => 'width: 100%'} %>
 
       <%= render "race_price_selection", f: f %>
-
+      <input id="img-width" type="number" name=photo[width] hidden="true"> 
+      <input id ="img-height" type="number" name=photo[height] hidden="true"> 
+      <input id ="xoffset" type="number" name=photo[xoffset] hidden="true"> 
+      <input id ="yoffset" type="number" name=photo[yoffset] hidden="true"> 
       <%= f.input :goodies, label: "Pacco gara (Se presente)", :input_html => { :rows => 6 , :style => 'width: 100%'} %>
       <%= f.submit "Conferma", class: "btn btn-primary"%>
       <div class="d-flex">
@@ -61,7 +64,7 @@
       </div>
       <div class="modal-footer">
         <button id="closeCropper" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="confirm-crop" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
