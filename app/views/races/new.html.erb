@@ -37,13 +37,37 @@
       <%= f.submit "Conferma", class: "btn btn-primary"%>
       <div class="d-flex">
         <%= f.input :cover_picture, label: "Immagine di copertina (Dimensione ottimale 1153*367)", input_html: { accept: ".jpg, .gif, .png" } %>
-        <img class="img-preview" id="cover-image-prewiew" />
+        
       </div>
         <%= f.input :cover_picture_cache, as: :hidden %>
       <% end %>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="imagePreviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div id="previewImgBody">
+        <img class="img-preview" id="cover-image-prewiew" />
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeCropper" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <%= javascript_pack_tag "flatpickr_init.js" %>
 <%= javascript_pack_tag "new_race_form.js" %>

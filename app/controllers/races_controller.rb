@@ -19,5 +19,6 @@ class RacesController < ApplicationController
   end
 
   def create
+    byebug
   end
 end

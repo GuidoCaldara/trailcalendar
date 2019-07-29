@@ -66,8 +66,7 @@ form{
 }
 
 .img-preview{
-  height: 100px;
-  object-fit: cover
+  max-width: 100%
 }
 input.form-control{
   border-radius: 4px
