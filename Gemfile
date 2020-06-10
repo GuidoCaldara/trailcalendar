@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'geocoder', '~> 1.6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
